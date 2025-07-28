@@ -1,0 +1,8 @@
+# Do not track these files
+*.Ds_Store
+*.exe
+*.app
+*.dmg
+
+# Do not track the folder "temp/"
+temp/
