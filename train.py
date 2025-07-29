@@ -1,8 +1,12 @@
-# import numpy library
-import numpy as np
+# import libraries
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.datasets import make_regression
 
-# setting the seed up
-rng = np.random.RandomState(1)
-X = np.sort(5 * rng.rand(80, 1), axis=0)
-y = np.sin(X).ravel()
-y[::5] += 3 * (0.5 - rng.rand(16))
+# Creating Dataset
+X, y = make_regression(n_features=4, n_informative=2,
+                       random_state=0, shuffle=False)
+
+# Creating and validating model
+regr = RandomForestRegressor(max_depth=2, random_state=0)
+regr.fit(X, y)
+print(regr.predict([[0, 0, 0, 0]]))
